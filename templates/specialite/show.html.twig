@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hopital | Specialite{% endblock %}
+
+{% block body %}
+</br>
+</br>
+    <h5 align="center">Specialite</h5>
+
+    
+    <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+            <table class="table table-stripped">
+                    <thead class="thead-dark">
+                    <tr class="thead-dark">
+          
+                <th>Id</th>
+                <th>Libelle</th>
+              
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ specialite.id }}</td>
+                <td>{{ specialite.libelle }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('specialite_index') }}" class="btn btn-primary">Listes des specialites</a>
+
+    <a href="{{ path('specialite_edit', {'id': specialite.id}) }}" class="btn btn-success">editer</a>
+
+    {{ include('specialite/_delete_form.html.twig') }}
+{% endblock %}

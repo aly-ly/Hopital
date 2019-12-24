@@ -1,0 +1,14 @@
+
+<div class="container px-5 my-1 bg-dark text-white">
+
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+
+
+    {{form_row(form.libelle)}}
+    <button class="btn btn-primary">{{ button_label|default('Valider') }}</button> </br></br>
+    <a href="{{ path('service_index') }}" class="btn btn-primary">Listes des services</a>
+
+</br></br>
+{{ form_end(form) }}
+</div>

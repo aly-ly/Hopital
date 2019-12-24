@@ -1,0 +1,8 @@
+<div class="form-group">
+<form method="post" action="{{ path('medecin_delete', {'id': medecin.id}) }}" onsubmit="return confirm('Etes-vous sur de vouloir supprimer cet element?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ medecin.id) }}">
+    <br/>
+    <button class="btn btn-danger">Supprimer</button>
+</div>
+</form>

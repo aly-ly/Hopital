@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hopital | Liste Medecin{% endblock %}
+
+{% block body %}</br>
+
+<div class="col-xl-5 col-lg-2 col-md-5 col-sm-10 mx-auto text-center form p-9">         
+<a href="{{ path('medecin_new') }}" class="btn btn-primary" >Ajouter un Medecin </a>
+</div>
+</br>
+    <h5 align="center">Listes des Medecins</h5>
+
+    <table class="table table-striped">
+            <thead class="thead-dark">
+            <tr class="thead-dark">
+                <th>Id</th>
+                <th>Matricule</th>
+                <th>Prenom</th>
+                <th>Nom</th>
+                <th>Date Naissance</th>
+                <th>Telephone</th>
+                <th>Service</th>
+                
+               
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for medecin in medecins %}
+            <tr>
+                <td>{{ medecin.id }}</td>
+                <td>{{ medecin.matricule }}</td>
+                <td>{{ medecin.prenom }}</td>
+                <td>{{ medecin.nom }}</td>
+                <td>{{ medecin.datenaisse ? medecin.datenaisse|date('Y-m-d') : '' }}</td>
+                <td>{{ medecin.telephone }}</td>
+                <td>{{ medecin.service }}</td>
+              
+              
+                <td>
+                    <a href="{{ path('medecin_show', {'id': medecin.id}) }}"  <i class="material-icons" title="Details">visibility</i></a>
+                    <a href="{{ path('medecin_edit', {'id': medecin.id}) }}"  <i class="material-icons" title="editer">edit</i></a>
+                    <a href=" {{ path('medecin_delete', {'id': medecin.id}) }}"<i class="material-icons" title="Supprimer">delete</i></a>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Auncun Enregistrement trouver</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+   
+      {% endblock %}
+

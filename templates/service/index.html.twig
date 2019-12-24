@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hopital | Listes Services{% endblock %}
+
+{% block body %}
+</br>
+    <h5 align="center">Nos Services</h5>
+<div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+    <table class="table table-stripped">
+            <thead class="thead-dark">
+            <tr class="thead-dark">
+                <th>Id</th>
+                <th>Libelle</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for service in services %}
+            <tr>
+                <td>{{ service.id }}</td>
+                <td>{{ service.libelle }}</td>
+                <td>
+                    <a href="{{ path('service_show', {'id': service.id}) }}"<i class="material-icons" title="Details">visibility</i></a>
+                    <a href="{{ path('service_edit', {'id': service.id}) }}" <i class="material-icons" title="edit"/>edit</a>
+                    <a href=" {{ path('service_delete', {'id': service.id}) }}"<i class="material-icons" title="Supprimer">delete</i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Auncun enregistrement trouver</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('service_new') }}"class="btn btn-primary"  >Nouveau Service</a>
+</div>
+{% endblock %}

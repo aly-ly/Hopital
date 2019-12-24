@@ -1,0 +1,11 @@
+{{ form_start(form) }}
+<div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+  <div class="container px-5 my-1 bg-dark text-white">
+    {{ form_widget(form) }}
+    <button class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
+    <a href="{{ path('specialite_index') }}" class="btn btn-success">Voir les specialites</a>
+</br>
+</br>
+  </div>
+</div>
+{{ form_end(form) }}

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hopital | Listes specialite{% endblock %}
+
+{% block body %}
+</br>
+    <h5 align="center">Specialite index</h5>
+
+    <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+            <table class="table table-stripped">
+                    <thead class="thead-dark">
+                    <tr class="thead-dark">
+          
+                <th>Id</th>
+                <th>Libelle</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for specialite in specialites %}
+            <tr>
+                <td>{{ specialite.id }}</td>
+                <td>{{ specialite.libelle }}</td>
+                <td>
+                    <a href="{{ path('specialite_show', {'id': specialite.id}) }}" class="material-icons" title="Details">visibility</i></a>
+                    <a href="{{ path('specialite_edit', {'id': specialite.id}) }}" class="material-icons" title="Editer">edit</i></a>
+                    <a href="{{ path('specialite_delete', {'id': specialite.id}) }}" class="material-icons" title="Suprimer">delete</i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Aucun enregistrement trouver</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('specialite_new') }}" class="btn btn-primary">Ajouter une specialite</a>
+{% endblock %}
